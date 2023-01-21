@@ -1,0 +1,26 @@
+name: release
+
+defaults:
+  run:
+    shell: bash
+
+on:
+  push:
+    tags:
+      - v*
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - run: |
+          major_release=$(echo ${GITHUB_REF#refs/tags/} | cut -f1 -d ".")
+          echo "MAJOR_RELEASE=${major_release}" >> $GITHUB_ENV
+      - uses: rickstaa/action-create-tag@v1
+        with:
+          force_push_tag: true
+          tag: "${{ env.MAJOR_RELEASE }}"
+          message: "retarget major release "
