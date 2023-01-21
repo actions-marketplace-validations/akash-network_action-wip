@@ -1,4 +1,4 @@
-# wip-check
+# Action WIP
 
 A GitHub Action tests that the PR does not contain any label or keyword in the title intended to prevent premature merging of the PR
 
@@ -23,7 +23,7 @@ jobs:
     name: WIP Check
     steps:
     - name: WIP Check
-      uses: tim-actions/wip-check@master
+      uses: akash-network/action-wip@v1
       with:
         labels: '["do-not-merge", "wip", "rfc"]'
         keywords: '["WIP", "wip", "RFC", "rfc"]'
