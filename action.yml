@@ -1,4 +1,4 @@
-name: 'wip-check'
+name: 'action-wip'
 description: 'A GitHub Action tests if the PR contains any label or keyword in the title intended to prevent premature merging of the PR'
 inputs:
   labels:
