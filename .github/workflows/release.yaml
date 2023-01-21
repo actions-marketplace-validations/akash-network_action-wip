@@ -23,4 +23,6 @@ jobs:
         with:
           force_push_tag: true
           tag: "${{ env.MAJOR_RELEASE }}"
-          message: "retarget major release "
+          message: "retarget major release ${{ env.MAJOR_RELEASE }}"
+      - name: Release
+        uses: softprops/action-gh-release@v1
